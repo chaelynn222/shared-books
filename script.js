@@ -53,13 +53,13 @@ async function loadBooks() {
     card.className = "book-card";
 
     card.innerHTML = `
-      ${info.cover ? `<img src="${info.cover}" alt="${title} cover">` : ""}
-      <div>
-        <h2>${title}</h2>
-        <p>${author}</p>
-        <p>⭐ ${info.rating} ${info.ratingsCount ? `(${info.ratingsCount} ratings)` : ""}</p>
-      </div>
-    `;
+  <img src="${info.cover}" alt="${title} cover">
+  <div>
+    <h2>${title}</h2>
+    <p>${author}</p>
+    <p>⭐ ${info.rating}</p>
+  </div>
+`;
 
     booksDiv.appendChild(card);
   }
