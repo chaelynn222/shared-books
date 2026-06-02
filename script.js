@@ -12,17 +12,19 @@ function parseCSV(text) {
 
 async function getBookInfo(title, author) {
   const query = encodeURIComponent(`${title} ${author}`);
-  const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=1`;
+  const url = `https://openlibrary.org/search.json?q=${query}&limit=1`;
 
   try {
     const res = await fetch(url);
     const data = await res.json();
-    const book = data.items?.[0]?.volumeInfo;
+    const book = data.docs?.[0];
 
     return {
-      cover: book?.imageLinks?.thumbnail?.replace("http://", "https://") || "",
-      rating: book?.averageRating || "No rating",
-      ratingsCount: book?.ratingsCount || 0
+      cover: book?.cover_i
+        ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+        : "",
+      rating: "No rating",
+      ratingsCount: 0
     };
   } catch {
     return { cover: "", rating: "No rating", ratingsCount: 0 };
