@@ -15,4 +15,23 @@ h1 {
   padding: 16px;
   margin: 12px 0;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.book-card img {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book-card h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.book-card p {
+  margin: 6px 0;
 }
