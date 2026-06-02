@@ -11,7 +11,10 @@ function parseCSV(text) {
 }
 
 async function getBookInfo(title, author) {
-  const query = encodeURIComponent(`${title} ${author}`);
+  const cleanTitle = title.replace(/\(.*?\)/g, "").trim();
+  const cleanAuthor = author.replace(/,.*$/, "").trim();
+
+  const query = encodeURIComponent(`${cleanTitle} ${cleanAuthor}`);
   const url = `https://openlibrary.org/search.json?q=${query}&limit=1`;
 
   try {
@@ -21,13 +24,17 @@ async function getBookInfo(title, author) {
 
     return {
       cover: book?.cover_i
-        ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
-        : "",
+        ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+        : "https://via.placeholder.com/120x180?text=No+Cover",
       rating: "No rating",
       ratingsCount: 0
     };
   } catch {
-    return { cover: "", rating: "No rating", ratingsCount: 0 };
+    return {
+      cover: "https://via.placeholder.com/120x180?text=No+Cover",
+      rating: "No rating",
+      ratingsCount: 0
+    };
   }
 }
 
