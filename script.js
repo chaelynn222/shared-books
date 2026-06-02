@@ -11,7 +11,7 @@ function parseCSV(text) {
 }
 
 async function getBookInfo(title, author) {
-  const query = encodeURIComponent(`intitle:${title} inauthor:${author}`);
+  const query = encodeURIComponent(`${title} ${author}`);
   const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=1`;
 
   try {
@@ -20,7 +20,7 @@ async function getBookInfo(title, author) {
     const book = data.items?.[0]?.volumeInfo;
 
     return {
-      cover: book?.imageLinks?.thumbnail || "",
+      cover: book?.imageLinks?.thumbnail?.replace("http://", "https://") || "",
       rating: book?.averageRating || "No rating",
       ratingsCount: book?.ratingsCount || 0
     };
