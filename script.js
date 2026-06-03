@@ -120,7 +120,7 @@ document.getElementById("random-pick").addEventListener("click", function () {
     document
       .getElementById("picked-book-card")
       .addEventListener("click", function () {
-        window.location.href = pick.goodreadsUrl;
+        window.open(book.goodreadsUrl, "_blank");
       });
 
     document.getElementById("picked-book-card").style.cursor = "pointer";
