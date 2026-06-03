@@ -1,80 +1,91 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f8f2ec;
-  color: #2f2118;
-  padding: 20px;
-  max-width: 850px;
-  margin: 0 auto;
+font-family: Arial, sans-serif;
+background: #f8f2ec;
+color: #2f2118;
+padding: 20px;
+max-width: 900px;
+margin: 0 auto;
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 6px;
+text-align: center;
+margin-bottom: 6px;
+font-size: 38px;
 }
 
 #book-count {
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #6b5a4d;
+text-align: center;
+margin-top: 0;
+margin-bottom: 24px;
+color: #6b5a4d;
+font-size: 18px;
 }
 
 .controls {
-  display: grid;
-  gap: 10px;
-  margin-bottom: 20px;
+display: grid;
+gap: 12px;
+margin-bottom: 24px;
 }
 
 input,
 button {
-  padding: 12px;
-  border-radius: 999px;
-  border: 1px solid #d6c7ba;
-  font-size: 15px;
+padding: 14px;
+border-radius: 999px;
+border: 1px solid #d6c7ba;
+font-size: 16px;
 }
 
 button {
-  background: #2f2118;
-  color: white;
-  cursor: pointer;
+background: #3a2315;
+color: white;
+cursor: pointer;
+transition: 0.2s;
+}
+
+button:hover {
+opacity: 0.9;
 }
 
 #random-result {
-  background: #fff;
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+background: white;
+border-radius: 16px;
+padding: 18px;
+margin-bottom: 20px;
+box-shadow: 0 2px 10px rgba(0,0,0,.08);
 }
 
 .book-card {
-  background: white;
-  border-radius: 16px;
-  padding: 16px;
-  margin: 14px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
-  display: flex;
-  gap: 18px;
-  align-items: center;
+background: white;
+border-radius: 20px;
+padding: 22px;
+margin: 18px 0;
+box-shadow: 0 3px 12px rgba(0,0,0,.08);
+display: flex;
+gap: 24px;
+align-items: center;
 }
 
 .book-card img {
-  width: 105px;
-  height: 155px;
-  object-fit: cover;
-  border-radius: 10px;
-  flex-shrink: 0;
-  background: #eee;
+width: 125px;
+height: 185px;
+object-fit: cover;
+border-radius: 12px;
+flex-shrink: 0;
+background: #eee;
+}
+
+.book-info {
+flex: 1;
 }
 
 .book-info h2 {
-  margin: 0 0 8px;
-  font-size: 20px;
-  line-height: 1.2;
+margin: 0 0 12px;
+font-size: 24px;
+line-height: 1.25;
 }
 
 .book-info p {
-  margin: 0;
-  font-size: 16px;
-  color: #5d4b40;
+margin: 0;
+font-size: 18px;
+color: #5d4b40;
 }
