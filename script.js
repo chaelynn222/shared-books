@@ -26,12 +26,10 @@ function formatAuthor(author) {
 }
 
 function getCover(book) {
-  // Use custom cover URL first
   if (book.coverUrl && book.coverUrl.length > 0) {
     return book.coverUrl;
   }
 
-  // Fall back to ISBN
   const cleanISBN = book.isbn
     ? book.isbn.replace(/[^0-9Xx]/g, "")
     : "";
@@ -112,13 +110,20 @@ document.getElementById("sort-author").addEventListener("click", function () {
 });
 
 document.getElementById("random-pick").addEventListener("click", function () {
-  const pick =
-    allBooks[Math.floor(Math.random() * allBooks.length)];
+  const pick = allBooks[Math.floor(Math.random() * allBooks.length)];
 
   document.getElementById("random-result").innerHTML = `
-    <strong>📚 Next Buddy Read Pick:</strong><br><br>
-    ${pick.title}<br>
-    <em>${pick.author}</em>
+    <div class="book-card">
+      <img src="${getCover(pick)}"
+           alt="${pick.title} cover"
+           onerror="this.src='https://via.placeholder.com/140x210?text=No+Cover'">
+
+      <div class="book-info">
+        <p><strong>📚 Next Buddy Read Pick</strong></p>
+        <h2>${pick.title}</h2>
+        <p>${pick.author}</p>
+      </div>
+    </div>
   `;
 });
 
