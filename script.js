@@ -99,16 +99,11 @@ document.getElementById("sort-title").addEventListener("click", function () {
   renderBooks(sorted);
 });
 
-document.getElementById("sort-author").addEventListener("click", function () {
-  const sorted = [...allBooks].sort((a, b) => a.author.localeCompare(b.author));
-  renderBooks(sorted);
-});
-
 document.getElementById("random-pick").addEventListener("click", function () {
   const pick = allBooks[Math.floor(Math.random() * allBooks.length)];
 
   document.getElementById("random-result").innerHTML = `
-    <div class="book-card">
+    <div class="book-card" id="picked-book-card">
       <img src="${getCover(pick)}"
            alt="${pick.title} cover"
            onerror="this.src='https://via.placeholder.com/140x210?text=No+Cover'">
@@ -120,6 +115,16 @@ document.getElementById("random-pick").addEventListener("click", function () {
       </div>
     </div>
   `;
+
+  if (pick.goodreadsUrl) {
+    document
+      .getElementById("picked-book-card")
+      .addEventListener("click", function () {
+        window.location.href = pick.goodreadsUrl;
+      });
+
+    document.getElementById("picked-book-card").style.cursor = "pointer";
+  }
 });
 
 loadBooks();
