@@ -34,21 +34,14 @@ function getCover(book) {
   return "https://via.placeholder.com/140x210?text=No+Cover";
 }
 
-function openGoodreads(book) {
-  if (book.goodreadsUrl && book.goodreadsUrl.length > 0) {
-    window.location.href = book.goodreadsUrl;
-  }
-}
-
 function createBookCard(book, isPick = false) {
-  const card = document.createElement("div");
+  const card = document.createElement(book.goodreadsUrl ? "a" : "div");
+
   card.className = "book-card";
 
-  if (book.goodreadsUrl && book.goodreadsUrl.length > 0) {
-    card.style.cursor = "pointer";
-    card.addEventListener("click", function () {
-      openGoodreads(book);
-    });
+  if (book.goodreadsUrl) {
+    card.href = book.goodreadsUrl;
+    card.target = "_self";
   }
 
   card.innerHTML = `
