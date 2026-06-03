@@ -45,6 +45,13 @@ function renderBooks(books) {
     const card = document.createElement("div");
     card.className = "book-card";
 
+    if (book.goodreadsUrl) {
+      card.style.cursor = "pointer";
+      card.addEventListener("click", function () {
+        window.open(book.goodreadsUrl, "_blank");
+      });
+    }
+
     card.innerHTML = `
       <img src="${getCover(book)}"
            alt="${book.title} cover"
@@ -69,7 +76,8 @@ async function loadBooks() {
     title: row[0] || "",
     author: formatAuthor(row[1] || ""),
     isbn: row[2] || "",
-    coverUrl: row[3] || ""
+    coverUrl: row[3] || "",
+    goodreadsUrl: row[4] || ""
   }));
 
   renderBooks(allBooks);
