@@ -47,9 +47,9 @@ function renderBooks(books) {
 
     if (book.goodreadsUrl) {
       card.style.cursor = "pointer";
-      card.addEventListener("click", function () {
-        window.open(book.goodreadsUrl, "_blank");
-      });
+      card.addEventListener("click", () => {
+  location.href = book.goodreadsUrl;
+});
     }
 
     card.innerHTML = `
