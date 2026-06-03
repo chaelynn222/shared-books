@@ -53,7 +53,7 @@ async function loadBooks() {
   const booksDiv = document.getElementById("books");
   booksDiv.innerHTML = "";
 
-  for (const [title, author, timesListed, isbn] of rows) {
+  for (const [title, author, isbn] of rows) {
     const info = await getBookInfo(title, author, isbn);
 
     const card = document.createElement("div");
@@ -64,7 +64,7 @@ async function loadBooks() {
       <div>
         <h2>${title}</h2>
         <p>${author}</p>
-        <p>📚 Listed ${timesListed} times</p>
+        
         <p>⭐ ${info.rating}</p>
       </div>
     `;
