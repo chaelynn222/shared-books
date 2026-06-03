@@ -25,14 +25,22 @@ function formatAuthor(author) {
   return author;
 }
 
-function getCover(isbn) {
-  const cleanISBN = isbn ? isbn.replace(/[^0-9Xx]/g, "") : "";
-
-  if (!cleanISBN) {
-    return "https://via.placeholder.com/140x210?text=No+Cover";
+function getCover(book) {
+  // Use custom cover URL first
+  if (book.coverUrl && book.coverUrl.length > 0) {
+    return book.coverUrl;
   }
 
-  return `https://covers.openlibrary.org/b/isbn/${cleanISBN}-L.jpg?default=false`;
+  // Fall back to ISBN
+  const cleanISBN = book.isbn
+    ? book.isbn.replace(/[^0-9Xx]/g, "")
+    : "";
+
+  if (cleanISBN) {
+    return `https://covers.openlibrary.org/b/isbn/${cleanISBN}-L.jpg?default=false`;
+  }
+
+  return "https://via.placeholder.com/140x210?text=No+Cover";
 }
 
 function renderBooks(books) {
@@ -47,7 +55,10 @@ function renderBooks(books) {
     card.className = "book-card";
 
     card.innerHTML = `
-      <img src="${getCover(book.isbn)}" alt="${book.title} cover" onerror="this.src='https://via.placeholder.com/140x210?text=No+Cover'">
+      <img src="${getCover(book)}"
+           alt="${book.title} cover"
+           onerror="this.src='https://via.placeholder.com/140x210?text=No+Cover'">
+
       <div class="book-info">
         <h2>${book.title}</h2>
         <p>${book.author}</p>
@@ -66,7 +77,8 @@ async function loadBooks() {
   allBooks = rows.map(row => ({
     title: row[0] || "",
     author: formatAuthor(row[1] || ""),
-    isbn: row[2] || ""
+    isbn: row[2] || "",
+    coverUrl: row[3] || ""
   }));
 
   renderBooks(allBooks);
@@ -84,17 +96,24 @@ document.getElementById("search").addEventListener("input", function () {
 });
 
 document.getElementById("sort-title").addEventListener("click", function () {
-  const sorted = [...allBooks].sort((a, b) => a.title.localeCompare(b.title));
+  const sorted = [...allBooks].sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+
   renderBooks(sorted);
 });
 
 document.getElementById("sort-author").addEventListener("click", function () {
-  const sorted = [...allBooks].sort((a, b) => a.author.localeCompare(b.author));
+  const sorted = [...allBooks].sort((a, b) =>
+    a.author.localeCompare(b.author)
+  );
+
   renderBooks(sorted);
 });
 
 document.getElementById("random-pick").addEventListener("click", function () {
-  const pick = allBooks[Math.floor(Math.random() * allBooks.length)];
+  const pick =
+    allBooks[Math.floor(Math.random() * allBooks.length)];
 
   document.getElementById("random-result").innerHTML = `
     <strong>📚 Next Buddy Read Pick:</strong><br><br>
