@@ -32,7 +32,7 @@ async function renderBooks(books) {
   const bookCount = document.getElementById("book-count");
 
   booksDiv.innerHTML = "";
-  bookCount.textContent = `${allBooks.length} books you both want to read`;
+  bookCount.textContent = `${allBooks.length} books we both want to read`;
 
   for (const book of books) {
     const info = await getBookInfo(book.title, book.author, book.isbn);
