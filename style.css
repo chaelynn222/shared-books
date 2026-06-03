@@ -118,3 +118,11 @@ color: #5d4b40;
 #random-result:empty {
   display: none;
 }
+
+#picked-book-card {
+  cursor: pointer;
+}
+
+#picked-book-card:active {
+  transform: scale(0.98);
+}
