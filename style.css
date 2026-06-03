@@ -126,3 +126,12 @@ color: #5d4b40;
 #picked-book-card:active {
   transform: scale(0.98);
 }
+
+.book-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.book-card:visited {
+  color: inherit;
+}
