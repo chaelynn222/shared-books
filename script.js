@@ -34,6 +34,38 @@ function getCover(book) {
   return "https://via.placeholder.com/140x210?text=No+Cover";
 }
 
+function openGoodreads(book) {
+  if (book.goodreadsUrl && book.goodreadsUrl.length > 0) {
+    window.location.href = book.goodreadsUrl;
+  }
+}
+
+function createBookCard(book, isPick = false) {
+  const card = document.createElement("div");
+  card.className = "book-card";
+
+  if (book.goodreadsUrl && book.goodreadsUrl.length > 0) {
+    card.style.cursor = "pointer";
+    card.addEventListener("click", function () {
+      openGoodreads(book);
+    });
+  }
+
+  card.innerHTML = `
+    <img src="${getCover(book)}"
+         alt="${book.title} cover"
+         onerror="this.src='https://via.placeholder.com/140x210?text=No+Cover'">
+
+    <div class="book-info">
+      ${isPick ? "<p><strong>📚 Next Buddy Read Pick</strong></p>" : ""}
+      <h2>${book.title}</h2>
+      <p>${book.author}</p>
+    </div>
+  `;
+
+  return card;
+}
+
 function renderBooks(books) {
   const booksDiv = document.getElementById("books");
   const bookCount = document.getElementById("book-count");
@@ -42,28 +74,7 @@ function renderBooks(books) {
   bookCount.textContent = `${allBooks.length} books we both wanna read`;
 
   books.forEach(book => {
-    const card = document.createElement("div");
-    card.className = "book-card";
-
-    if (book.goodreadsUrl) {
-      card.style.cursor = "pointer";
-      card.addEventListener("click", () => {
-  location.href = book.goodreadsUrl;
-});
-    }
-
-    card.innerHTML = `
-      <img src="${getCover(book)}"
-           alt="${book.title} cover"
-           onerror="this.src='https://via.placeholder.com/140x210?text=No+Cover'">
-
-      <div class="book-info">
-        <h2>${book.title}</h2>
-        <p>${book.author}</p>
-      </div>
-    `;
-
-    booksDiv.appendChild(card);
+    booksDiv.appendChild(createBookCard(book));
   });
 }
 
@@ -99,32 +110,17 @@ document.getElementById("sort-title").addEventListener("click", function () {
   renderBooks(sorted);
 });
 
+document.getElementById("sort-author").addEventListener("click", function () {
+  const sorted = [...allBooks].sort((a, b) => a.author.localeCompare(b.author));
+  renderBooks(sorted);
+});
+
 document.getElementById("random-pick").addEventListener("click", function () {
   const pick = allBooks[Math.floor(Math.random() * allBooks.length)];
+  const randomResult = document.getElementById("random-result");
 
-  document.getElementById("random-result").innerHTML = `
-    <div class="book-card" id="picked-book-card">
-      <img src="${getCover(pick)}"
-           alt="${pick.title} cover"
-           onerror="this.src='https://via.placeholder.com/140x210?text=No+Cover'">
-
-      <div class="book-info">
-        <p><strong>📚 Next Buddy Read Pick</strong></p>
-        <h2>${pick.title}</h2>
-        <p>${pick.author}</p>
-      </div>
-    </div>
-  `;
-
-  if (pick.goodreadsUrl) {
-    document
-      .getElementById("picked-book-card")
-      .addEventListener("click", function () {
-        window.open(book.goodreadsUrl, "_blank");
-      });
-
-    document.getElementById("picked-book-card").style.cursor = "pointer";
-  }
+  randomResult.innerHTML = "";
+  randomResult.appendChild(createBookCard(pick, true));
 });
 
 loadBooks();
