@@ -4,19 +4,45 @@
 
 <head>
 
-  <title>Shared Books</title>
+    <title>Our Shared TBR 📚</title>
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<h1>Buddy Read 📚</h1>
+    <h1>Our Shared TBR 📚</h1>
 
-<div id="books"></div>
+    <p id="book-count"></p>
 
-<script src="script.js"></script>
+    <div class="controls">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search by title or author..."
+        >
+
+        <button id="sort-title">
+            Sort by Title
+        </button>
+
+        <button id="sort-author">
+            Sort by Author
+        </button>
+
+        <button id="random-pick">
+            Pick Our Next Read 🎲
+        </button>
+
+    </div>
+
+    <div id="random-result"></div>
+
+    <div id="books"></div>
+
+    <script src="script.js"></script>
 
 </body>
 
