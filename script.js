@@ -16,23 +16,16 @@ function formatAuthor(author) {
 
   if (author.includes(",")) {
     const parts = author.split(",").map(part => part.trim());
-
-    if (parts.length >= 2) {
-      return `${parts[1]} ${parts[0]}`;
-    }
+    if (parts.length >= 2) return `${parts[1]} ${parts[0]}`;
   }
 
   return author;
 }
 
 function getCover(book) {
-  if (book.coverUrl && book.coverUrl.length > 0) {
-    return book.coverUrl;
-  }
+  if (book.coverUrl && book.coverUrl.length > 0) return book.coverUrl;
 
-  const cleanISBN = book.isbn
-    ? book.isbn.replace(/[^0-9Xx]/g, "")
-    : "";
+  const cleanISBN = book.isbn ? book.isbn.replace(/[^0-9Xx]/g, "") : "";
 
   if (cleanISBN) {
     return `https://covers.openlibrary.org/b/isbn/${cleanISBN}-L.jpg?default=false`;
@@ -94,25 +87,19 @@ document.getElementById("search").addEventListener("input", function () {
 });
 
 document.getElementById("sort-title").addEventListener("click", function () {
-  const sorted = [...allBooks].sort((a, b) =>
-    a.title.localeCompare(b.title)
-  );
-
+  const sorted = [...allBooks].sort((a, b) => a.title.localeCompare(b.title));
   renderBooks(sorted);
 });
 
 document.getElementById("sort-author").addEventListener("click", function () {
-  const sorted = [...allBooks].sort((a, b) =>
-    a.author.localeCompare(b.author)
-  );
-
+  const sorted = [...allBooks].sort((a, b) => a.author.localeCompare(b.author));
   renderBooks(sorted);
 });
 
 document.getElementById("random-pick").addEventListener("click", function () {
   const pick = allBooks[Math.floor(Math.random() * allBooks.length)];
 
-  document.getElementById("random-result").innerHTML = "";
+  document.getElementById("random-result").innerHTML = `
     <div class="book-card">
       <img src="${getCover(pick)}"
            alt="${pick.title} cover"
