@@ -51,7 +51,11 @@ async function loadBooks() {
 
   allBooks = rows.map(row => ({
     title: row[0] || "",
-    author: row[1] || "",
+    author: row[1]
+  ? row[1].includes(",")
+    ? row[1].split(",").reverse().join(" ").trim()
+    : row[1]
+  : "",
     isbn: row[2] || ""
   }));
 
