@@ -11,6 +11,20 @@ function parseCSV(text) {
   });
 }
 
+function formatAuthor(author) {
+  if (!author) return "";
+
+  if (author.includes(",")) {
+    const parts = author.split(",").map(part => part.trim());
+
+    if (parts.length >= 2) {
+      return `${parts[1]} ${parts[0]}`;
+    }
+  }
+
+  return author;
+}
+
 function getCover(isbn) {
   const cleanISBN = isbn ? isbn.replace(/[^0-9Xx]/g, "") : "";
 
@@ -51,11 +65,7 @@ async function loadBooks() {
 
   allBooks = rows.map(row => ({
     title: row[0] || "",
-    author: row[1]
-  ? row[1].includes(",")
-    ? row[1].split(",").reverse().join(" ").trim()
-    : row[1]
-  : "",
+    author: formatAuthor(row[1] || ""),
     isbn: row[2] || ""
   }));
 
