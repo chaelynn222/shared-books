@@ -3,36 +3,78 @@ body {
   background: #f8f2ec;
   color: #2f2118;
   padding: 20px;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 6px;
+}
+
+#book-count {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #6b5a4d;
+}
+
+.controls {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input,
+button {
+  padding: 12px;
+  border-radius: 999px;
+  border: 1px solid #d6c7ba;
+  font-size: 15px;
+}
+
+button {
+  background: #2f2118;
+  color: white;
+  cursor: pointer;
+}
+
+#random-result {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
 .book-card {
   background: white;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 16px;
-  margin: 12px 0;
+  margin: 14px 0;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
+  gap: 18px;
+  align-items: center;
 }
 
 .book-card img {
-  width: 90px;
-  height: 135px;
+  width: 105px;
+  height: 155px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
   flex-shrink: 0;
+  background: #eee;
 }
 
-.book-card h2 {
-  margin-top: 0;
-  font-size: 18px;
+.book-info h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.2;
 }
 
-.book-card p {
-  margin: 6px 0;
+.book-info p {
+  margin: 0;
+  font-size: 16px;
+  color: #5d4b40;
 }
