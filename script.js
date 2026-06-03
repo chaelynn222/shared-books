@@ -112,7 +112,7 @@ document.getElementById("sort-author").addEventListener("click", function () {
 document.getElementById("random-pick").addEventListener("click", function () {
   const pick = allBooks[Math.floor(Math.random() * allBooks.length)];
 
-  document.getElementById("random-result").innerHTML = `
+  document.getElementById("random-result").innerHTML = "";
     <div class="book-card">
       <img src="${getCover(pick)}"
            alt="${pick.title} cover"
