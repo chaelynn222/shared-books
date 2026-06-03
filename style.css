@@ -89,3 +89,40 @@ margin: 0;
 font-size: 18px;
 color: #5d4b40;
 }
+/* =========================================
+   BUDDY READ PICK HIGHLIGHT
+========================================= */
+
+#random-result {
+  margin: 20px 0 30px;
+}
+
+#random-result::before {
+  content: "✨ BUDDY READ PICK ✨";
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  color: #6b3e26;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+#random-result .book-card {
+  background: #f4e4d5;
+  border: 3px solid #6b3e26;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform: scale(1.01);
+}
+
+#random-result .book-info h2 {
+  color: #6b3e26;
+}
+
+#random-result .book-info p {
+  color: #6b3e26;
+}
+
+#random-result img {
+  border-radius: 10px;
+}
