@@ -64,7 +64,7 @@ function renderBooks(books) {
   const bookCount = document.getElementById("book-count");
 
   booksDiv.innerHTML = "";
-  bookCount.innerHTML = `We have <strong>${books.length}</strong> books to pick from`;
+  bookCount.innerHTML = `We have <strong>${books.length}</strong> books to pick from.`;
 
   books.forEach(book => {
     booksDiv.appendChild(createBookCard(book));
