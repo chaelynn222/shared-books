@@ -7,9 +7,17 @@ body {
 }
 
 h1 {
+
   text-align: center;
+
   margin: 40px 0 8px;
+
   font-size: 38px;
+
+  font-family: "Bree Serif", serif;
+
+  font-weight: 400;
+
 }
 
 #book-count {
