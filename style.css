@@ -1,12 +1,22 @@
 body {
+
   font-family: Arial, sans-serif;
+
   background: #f3eee9;
+
   margin: 0;
+
   padding: 22px;
+
   color: #3b2418;
+
 }
 
 h1 {
+
+  font-family: "Bree Serif", serif;
+
+  font-weight: 400;
 
   text-align: center;
 
@@ -14,146 +24,234 @@ h1 {
 
   font-size: 38px;
 
-  font-family: "Bree Serif", serif;
-
-  font-weight: 400;
-
 }
 
 #book-count {
+
   text-align: center;
+
   color: #6f6258;
+
   margin-bottom: 28px;
+
   font-size: 20px;
+
 }
 
 #search {
+
   width: 100%;
+
   padding: 15px;
+
   border-radius: 28px;
+
   border: 1px solid #d7ccc3;
+
   font-size: 17px;
+
   margin-bottom: 16px;
+
   box-sizing: border-box;
+
 }
 
 button {
+
   width: 100%;
+
   padding: 17px;
+
   margin-bottom: 14px;
+
   border: none;
+
   border-radius: 30px;
+
   background: #4c2412;
+
   color: white;
+
   font-size: 22px;
+
   cursor: pointer;
+
 }
 
 button:hover {
+
   background: #5d3019;
+
 }
 
 #random-result {
+
   margin: 28px 0 30px;
+
 }
 
 #random-result:empty {
+
   display: none;
+
 }
 
 #random-result .book-card {
+
   background: #f8ecd9;
+
   border: 3px solid #c89b5b;
+
   box-shadow: 0 0 20px rgba(200, 155, 91, 0.30);
+
   animation: buddyPulse 3s ease-in-out infinite;
+
 }
 
 @keyframes buddyPulse {
+
   0% {
+
     transform: scale(1);
+
     box-shadow: 0 0 20px rgba(200, 155, 91, 0.25);
+
   }
 
   50% {
+
     transform: scale(1.015);
+
     box-shadow: 0 0 28px rgba(200, 155, 91, 0.45);
+
   }
 
   100% {
+
     transform: scale(1);
+
     box-shadow: 0 0 20px rgba(200, 155, 91, 0.25);
+
   }
+
 }
 
 .book-card {
+
   display: flex;
+
   gap: 26px;
+
   align-items: center;
+
   background: white;
+
   border-radius: 18px;
+
   padding: 24px;
+
   margin-bottom: 22px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+
   text-decoration: none;
+
   color: inherit;
+
 }
 
 .book-card:visited {
+
   color: inherit;
+
 }
 
 .book-card img {
+
   width: 130px;
+
   height: 190px;
+
   object-fit: cover;
+
   border-radius: 10px;
+
   flex-shrink: 0;
+
 }
 
 .book-info {
+
   flex: 1;
+
 }
 
 .book-info h2 {
+
   margin: 0 0 12px;
+
   font-size: 26px;
+
   line-height: 1.25;
+
 }
 
 .book-info p {
+
   margin: 0;
+
   color: #6f6258;
+
   font-size: 24px;
+
 }
 
 .book-card:active {
+
   transform: scale(0.98);
+
 }
 
 @media (max-width: 600px) {
+
   body {
+
     padding: 20px;
+
   }
 
   h1 {
+
     font-size: 38px;
+
   }
 
   .book-card {
+
     gap: 24px;
+
     padding: 24px;
+
   }
 
   .book-card img {
+
     width: 126px;
+
     height: 188px;
+
   }
 
   .book-info h2 {
+
     font-size: 25px;
+
   }
 
   .book-info p {
+
     font-size: 23px;
+
   }
+
 }
