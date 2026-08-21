@@ -1,425 +1,315 @@
 * {
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
 }
 
 body {
 
-    margin: 0;
+  margin: 0;
 
-    padding: 28px 18px 45px;
+  padding: 34px 18px 50px;
 
-    background: #f8f3ed;
+  background: #f7f1eb;
 
-    color: #35251d;
+  color: #3b2418;
 
-    font-family: Arial, sans-serif;
-
-    text-align: center;
+  font-family: Arial, sans-serif;
 
 }
-
-/* =========================
-
-   PAGE TITLE
-
-   ========================= */
 
 h1 {
 
-    font-family: "Bree Serif", Georgia, serif;
+  margin: 10px 0 6px;
 
-    font-size: 36px;
+  text-align: center;
 
-    font-weight: 400;
+  font-family: "Bree Serif", Georgia, serif;
 
-    line-height: 1.05;
+  font-size: 38px;
 
-    letter-spacing: 0.3px;
+  font-weight: 400;
 
-    margin: 18px 0 7px;
+  line-height: 1.05;
 
-    color: #3f2114;
+  color: #3b2418;
 
 }
-
-/* BOOK COUNT */
 
 #book-count {
 
-    margin: 0 0 25px;
+  margin: 0 0 28px;
 
-    font-size: 16px;
+  text-align: center;
 
-    color: #746359;
+  font-size: 17px;
+
+  color: #7a6a60;
 
 }
-
-/* =========================
-
-   SEARCH
-
-   ========================= */
 
 #search {
 
-    display: block;
+  width: 100%;
 
-    width: 100%;
+  padding: 14px 18px;
 
-    padding: 11px 15px;
+  margin-bottom: 14px;
 
-    margin: 0 0 10px;
+  border: 1px solid #dfd2c7;
 
-    font-size: 14px;
+  border-radius: 30px;
 
-    background: #ffffff;
+  background: #ffffff;
 
-    border: 1px solid #ddcec3;
+  font-size: 16px;
 
-    border-radius: 24px;
+  color: #3b2418;
 
-    outline: none;
+  outline: none;
 
 }
 
-/* =========================
-
-   BUTTONS
-
-   ========================= */
-
 button {
 
-    display: block;
+  width: 100%;
 
-    width: 100%;
+  padding: 14px 18px;
 
-    padding: 10px 15px;
+  margin-bottom: 12px;
 
-    margin-bottom: 9px;
+  border: none;
 
-    border: none;
+  border-radius: 30px;
 
-    border-radius: 25px;
+  background: #54240f;
 
-    background: #472616;
+  color: #ffffff;
 
-    color: #ffffff;
+  font-family: Arial, sans-serif;
 
-    font-size: 16px;
+  font-size: 18px;
 
-    font-family: Arial, sans-serif;
-
-    cursor: pointer;
+  cursor: pointer;
 
 }
 
 button:active {
 
-    transform: scale(0.99);
+  transform: scale(0.99);
 
 }
 
-/* =========================
-
-   RANDOM BUDDY READ PICK
-
-   ========================= */
-
 #random-result {
 
-    margin: 17px 0;
+  margin: 20px 0 28px;
 
 }
 
 #random-result:empty {
 
-    display: none;
+  display: none;
 
 }
 
-#random-result:not(:empty) {
+#random-result .book-card {
 
-    background: #ffffff;
+  background: #f5e4d2;
 
-    padding: 11px;
+  border: 2px solid #7a452a;
 
-    border-radius: 15px;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 18px rgba(80, 45, 25, 0.12);
 
 }
-
-#random-result:not(:empty)::before {
-
-    content: "✨ BUDDY READ PICK ✨";
-
-    display: block;
-
-    text-align: center;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    color: #6b3e26;
-
-    margin-bottom: 9px;
-
-}
-
-/* =========================
-
-   BOOK LIST
-
-   ========================= */
 
 #books {
 
-    display: flex;
+  display: flex;
 
-    flex-direction: column;
+  flex-direction: column;
 
-    gap: 12px;
+  gap: 16px;
 
 }
-
-/* =========================
-
-   BOOK CARDS
-
-   ========================= */
 
 .book-card {
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    text-align: left;
+  gap: 22px;
 
-    gap: 14px;
+  width: 100%;
 
-    width: 100%;
+  padding: 20px;
 
-    min-height: 145px;
+  background: #ffffff;
 
-    padding: 13px;
+  border-radius: 20px;
 
-    background: #ffffff;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.06);
 
-    border-radius: 15px;
+  color: inherit;
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
 
 }
 
-/* =========================
+.book-card:visited {
 
-   BOOK COVERS
+  color: inherit;
 
-   ========================= */
+}
+
+.book-card:active {
+
+  transform: scale(0.99);
+
+}
 
 .book-card img {
 
-    width: 87px;
+  width: 112px;
 
-    height: 130px;
+  height: 168px;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 
-    object-fit: cover;
+  object-fit: cover;
 
-    border-radius: 7px;
+  border-radius: 10px;
 
 }
 
-/* =========================
-
-   BOOK INFORMATION
-
-   ========================= */
-
 .book-info {
 
-    flex: 1;
+  flex: 1;
 
-    min-width: 0;
+  min-width: 0;
 
 }
 
 .book-info h2 {
 
-    margin: 0 0 6px;
+  margin: 0 0 10px;
 
-    font-size: 17px;
+  font-family: Arial, sans-serif;
 
-    line-height: 1.2;
+  font-size: 21px;
 
-    font-weight: 700;
+  line-height: 1.22;
 
-    color: #35251d;
+  font-weight: 700;
+
+  color: #3b2418;
+
+  text-decoration: none;
 
 }
 
 .book-info p {
 
-    margin: 0;
+  margin: 0;
 
-    font-size: 14px;
+  font-family: Arial, sans-serif;
 
-    line-height: 1.3;
+  font-size: 17px;
 
-    color: #655249;
+  line-height: 1.3;
 
-}
+  color: #6e5a4f;
 
-/* =========================
-
-   CLICKABLE GOODREADS CARDS
-
-   ========================= */
-
-a.book-link {
-
-    display: block;
-
-    color: inherit;
-
-    text-decoration: none;
+  text-decoration: none;
 
 }
 
-a.book-link:visited {
+.book-card,
 
-    color: inherit;
+.book-card *,
 
-}
+.book-card:link,
 
-/* =========================
+.book-card:visited,
 
-   SELECTED BUDDY READ
+.book-card:hover,
 
-   ========================= */
+.book-card:active {
 
-#random-result .book-card {
-
-    min-height: 145px;
-
-    background: #f4e4d5;
-
-    border: 2px solid #6b3e26;
-
-    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.10);
-
-    transform: none;
+  text-decoration: none !important;
 
 }
 
-#random-result .book-info h2 {
-
-    color: #6b3e26;
-
-}
+#random-result .book-info h2,
 
 #random-result .book-info p {
 
-    color: #6b3e26;
+  color: #6b3e26;
 
 }
 
-/* =========================
-
-   MOBILE
-
-   ========================= */
-
 @media (max-width: 600px) {
 
-    body {
+  body {
 
-        padding: 25px 14px 38px;
+    padding: 30px 16px 42px;
 
-    }
+  }
 
-    h1 {
+  h1 {
 
-        font-size: 35px;
+    font-size: 36px;
 
-        margin-top: 16px;
+  }
 
-        margin-bottom: 6px;
+  #book-count {
 
-    }
+    font-size: 16px;
 
-    #book-count {
+  }
 
-        font-size: 15px;
+  #search {
 
-        margin-bottom: 23px;
+    font-size: 15px;
 
-    }
+    padding: 13px 16px;
 
-    #search {
+  }
 
-        font-size: 14px;
+  button {
 
-        padding: 10px 13px;
+    font-size: 17px;
 
-    }
+    padding: 13px 16px;
 
-    button {
+  }
 
-        font-size: 15px;
+  .book-card {
 
-        padding: 10px 14px;
+    gap: 18px;
 
-    }
+    padding: 18px;
 
-    #books {
+  }
 
-        gap: 11px;
+  .book-card img {
 
-    }
+    width: 105px;
 
-    .book-card {
+    height: 158px;
 
-        min-height: 140px;
+  }
 
-        padding: 12px;
+  .book-info h2 {
 
-        gap: 14px;
+    font-size: 20px;
 
-    }
+  }
 
-    .book-card img {
+  .book-info p {
 
-        width: 84px;
+    font-size: 16px;
 
-        height: 126px;
-
-    }
-
-    .book-info h2 {
-
-        font-size: 17px;
-
-    }
-
-    .book-info p {
-
-        font-size: 14px;
-
-    }
-
-    #random-result .book-card {
-
-        min-height: 140px;
-
-    }
+  }
 
 }
